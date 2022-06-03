@@ -32,7 +32,7 @@ app.use(express_session({
     resave : false,
     saveUninitialized : false,
     store:require('mongoose-session')(mongoose),
-    cookie : {maxAge :  6*24}
+    cookie : {maxAge :  60*60*24}
 }))
 
 
