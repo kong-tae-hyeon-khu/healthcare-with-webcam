@@ -68,11 +68,12 @@ app.post('/api/users/register', (req,res) => {
 
 // 로그인 .
 app.post('/api/users/login', (req ,res) => {
+    console.log(req.body)
     User.findOne({name : req.body.name}, (err, user) => {
         if (!user) {
             return res.json({
                 loginSuccess: false,
-                message : "이름이 일치하는 사용자가 없습니다 !"
+                message : "이름이 일치하는 사용자가 없습니다 !",
             })
         }
         else if (req.body.password === user.password) {
