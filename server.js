@@ -51,6 +51,10 @@ app.get('/', (req,res) => {
 app.get('/main.js', (req,res) => {
     res.sendFile( __dirname + '/views/mainPage/main.js')
 })
+// js 파일 전송.
+app.get('/squart.js', (req,res) => {
+    res.sendFile( __dirname + '/views/squartPage/squart.js')
+})
 
 app.get('/squart', (req,res) => {
         if (req.session.user)
@@ -158,7 +162,7 @@ app.get('/api/users/logout', (req,res) => {
         
 })
 
-
+// 스쿼트 갯수 업데이트 API
 app.post('/api/users/countupdate', (req,res) => {
     var userName = req.body.name
     var userCount = req.body.count
