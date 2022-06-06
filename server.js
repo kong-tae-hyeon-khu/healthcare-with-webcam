@@ -12,27 +12,6 @@ app.set('port', port)
 app.set('view engine', 'ejs')
 app.engine('html',ejs.renderFile )
 
-
-app.get('/', (req,res) => {
-    app.set('views', __dirname + '/views/mainPage')
-    res.render('main.html')
-})
-
-
-// js 파일 전송.
-app.get('/main.js', (req,res) => {
-    res.sendFile( __dirname + '/views/mainPage/main.js')
-})
-
-app.get('/squart', (req,res) => {
-    app.set('views', __dirname + '/views/squartPage')
-    res.render('squart.html')
-})
-
-app.listen(port, () => {
-    console.log(`Listening on ${port} port`);
-})
-
 // model/user.js
 const { User } = require('./model/User');
 const mongoose = require('mongoose');
@@ -40,8 +19,6 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb+srv://kongtae:ksas9825!%40@squartusers.e2ddc.mongodb.net/?retryWrites=true&w=majority')
 .then(() => console.log('MongoDB connect!'))
 .catch(err => console.log(err))
-
-// 유저 등록 및 로그인 API
 
 // 로그인 세션 : 로그인 정보 유지.
 const express_session = require('express-session')
@@ -52,6 +29,44 @@ app.use(express_session({
     store:require('mongoose-session')(mongoose),
     cookie : {maxAge :  60*60*24}
 }))
+
+
+app.get('/', (req,res) => {
+    console.log(req.session)
+    if (req.session.user)
+    {
+        app.set('views', __dirname + '/views/squartPage')
+        res.render('squart.html')
+    }
+    else
+    {
+        app.set('views', __dirname + '/views/mainPage')
+        res.render('main.html')
+    }
+
+})
+
+
+// js 파일 전송.
+app.get('/main.js', (req,res) => {
+    res.sendFile( __dirname + '/views/mainPage/main.js')
+})
+
+app.get('/squart', (req,res) => {
+    
+        app.set('views', __dirname + '/views/squartPage')
+        res.render('squart.html')
+})
+
+app.listen(port, () => {
+    console.log(`Listening on ${port} port`);
+})
+
+
+
+// 유저 등록 및 로그인 API
+
+
 
 
 // 등록 .
@@ -81,6 +96,8 @@ app.post('/api/users/login', (req ,res) => {
                 user_name : req.body.name,
                 user_password : req.body.password,
             }
+            req.session.save()
+            
             console.log(req.session.user)
             return res.json({
                 loginSuccess : true,
@@ -126,6 +143,10 @@ app.get('/api/users/logout', (req,res) => {
     }
         
 })
+
+
+
+
 
 // 세션 저장 확인
 app.get('/api/session', (req,res) => {
