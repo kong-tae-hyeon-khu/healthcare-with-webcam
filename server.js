@@ -53,9 +53,16 @@ app.get('/main.js', (req,res) => {
 })
 
 app.get('/squart', (req,res) => {
-    
+        if (req.session.user)
+        {
         app.set('views', __dirname + '/views/squartPage')
         res.render('squart.html')
+        }
+        else
+        {   // 로그인 안되어 있으면, 스쿼트 페이지 진입 불가.
+            app.set('views', __dirname + '/views/mainPage')
+            res.render('main.html')
+        }
 })
 
 app.listen(port, () => {
@@ -72,12 +79,19 @@ app.listen(port, () => {
 // 등록 .
 app.use(express.json())
 app.post('/api/users/register', (req,res) => {
+    console.log(req.body)
     const new_user = new User(req.body);
     new_user.save((err, userInfo) => {
-        if (err) return res.json({ successs : false, err})
-        return res.status(200).json({
-            success : true
-        })
+        if (err) 
+        {
+            var result = res.json({success : false, err})
+            return result
+        }
+        else
+        {
+            var result = res.status(200).json({success : true})
+            return result
+        }              
     })
 })
 
@@ -145,7 +159,26 @@ app.get('/api/users/logout', (req,res) => {
 })
 
 
+app.post('/api/users/countupdate', (req,res) => {
+    var userName = req.body.name
+    var userCount = req.body.count
+    User.findOne({name : userName}, (err,userInfo) => {
+        
+        if (err) res.json({success : false, err})
+        
+        userInfo.today_squart = Number(userInfo.today_squart) + Number(userCount)
+        userInfo.total_squart = Number(userInfo.total_squart) + Number(userCount)
+        userInfo.save()
 
+
+        return res.json({
+            success : true,
+            today_squart : userInfo.today_squart,
+            total_squart : userInfo.total_squart
+        })
+        
+    })
+})
 
 
 // 세션 저장 확인
