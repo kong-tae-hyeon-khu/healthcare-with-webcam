@@ -9,12 +9,22 @@
   </head>
   <body bgcolor= "#353535">
     <div class="Title">Squat Page</div>
-    <center><button class="w-btn w-btn-indigo" type="button" onclick="init()">WEBCAM START</button></center>
-    <div><canvas id="canvas"></canvas></div>
-    <div id="label-container"></div>
     <center>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/9WhpAVOSyl8?start=22" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <button class="w-btn w-btn-indigo" type="button" onclick="init()">WEBCAM START</button>
+        <div>
+            <canvas id="canvas"></canvas>
+            <iframe
+                id="youtube"
+                class="hidden"
+                width="560" height="315"
+                src="https://www.youtube.com/embed/9WhpAVOSyl8?start=22"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            </iframe>
+        </div>
     </center>
+    <div id="label-container" class="label-container"></div>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
     <script src="./squat.js"></script>

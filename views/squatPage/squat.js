@@ -4,9 +4,14 @@
 const URL = "https://teachablemachine.withgoogle.com/models/xymjZj4q-/"; // 임시 URI - stand , squart, bent(허리 굽은 자세) 학습.
 let model, webcam, ctx, labelContainer, maxPredictions;
 
+
+
 async function init() {
     const modelURL = URL + "model.json";
     const metadataURL = URL + "metadata.json";
+
+    var target = document.getElementById("youtube");
+    target.className = "visible";
 
     // load the model and metadata
     // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
@@ -52,7 +57,7 @@ async function predict() {
     if (prediction[0].probability.toFixed(2) > 0.9) { // 서있는 상태
         if (status == "squat"){ // 전에 스쿼트 상태였다면, 일어날 때 카운트를 하나 올려줘야 함.
             count++;
-            var audio = new Audio(count%10 + '.wav');
+            var audio = new Audio('./sound/' + count%10 + '.wav');
             audio.play();
             console.log(count);
         }
@@ -61,7 +66,7 @@ async function predict() {
         status = "squat"
     } else if (prediction[2].probability.toFixed(2) == 1.00) { // 굽은 자세(잘못된 케이스)
         if (status == "squart" || status == "stand") { // 굽은 자세로 잘못 수행하면, 소리 나도록
-            var audio = new Audio('bad.mp3');
+            var audio = new Audio('./sound/bad.mp3');
             audio.play();
         }
         status = "bent"
