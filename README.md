@@ -33,18 +33,29 @@
 ### Backend
 node.js , express
 MongoDB , mogoose
+
 ### Frontend
 HTML , Javascript, CSS
-### Server
-AWS - EC2
----
+
+### Server 
+AWS , EC2
+
 # 설치 및 실행
 ```
 npm install
 npm run start
 ```
 GO to localhost:8000 
+* 테스트 케이스 추가 및 설정 -> https://teachablemachine.withgoogle.com
+* URL 연결 on squat.js
+
+# for developer
+* server.js : API Implement, mongodb database access IP 추가 필요 -> https://www.mongodb.com
+* change mongoose.connect("Key") for own database.
+* model/user.js : Database user schema
+
 # RoadMap
 * 다양한 운동 자세 추가
 * 여러 케이스 추가로 정확도 향상
 * 데이터 베이스를 활용한 운동량 분석
+
