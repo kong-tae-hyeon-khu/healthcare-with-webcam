@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="squat.css">
+      <title>Squat Page</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body bgcolor= "#353535">
+    <div id="title" class="Title">
+        Squat Page
+        
+        <center>
+            <button class="w-btn w-btn-indigo" type="button" onclick="init()">WEBCAM START</button>
+            <button id = "savecount" class="w-btn w-btn-indigo" type="button" onclick="">스쿼트 횟수 저장</button>
+            <div>
+                <canvas id="canvas"></canvas>
+                <iframe
+                    id="youtube"
+                    class="hidden"
+                    width="560" height="400"
+                    src="https://www.youtube.com/embed/9WhpAVOSyl8?start=22"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                </iframe>
+            </div>
+            <div id="counter" class="circle"></div>
+        </center>
+    </div>
+    <div id="label-container" class="label-container"></div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
+    <script src="./squat.js"></script>
+  </body>
+</html>
