@@ -33,23 +33,18 @@
 ### Backend
 node.js , express
 MongoDB , mogoose
-
 ### Frontend
 HTML , Javascript, CSS
-
 ### Server
 AWS - EC2
-
 ---
-
 # 설치 및 실행
 ```
 npm install
 npm run start
 ```
 GO to localhost:8000 
-
 # RoadMap
-다양한 운동 자세 추가
-여러 케이스 추가로 정확도 향상
-데이터 베이스를 활용한 운동량 분석
+* 다양한 운동 자세 추가
+* 여러 케이스 추가로 정확도 향상
+* 데이터 베이스를 활용한 운동량 분석
