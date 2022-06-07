@@ -4,7 +4,13 @@
 const URL = "https://teachablemachine.withgoogle.com/models/xymjZj4q-/"; // 임시 URI - stand , squart, bent(허리 굽은 자세) 학습.
 let model, webcam, ctx, labelContainer, maxPredictions;
 
-
+// 상태 : 서있는 상태로 초기화
+let status = "stand" ;
+// 갯수 count
+let count = 0;
+var counter = document.getElementById("counter");
+counter.textContent = count;
+counter.className = "hidden";
 
 async function init() {
     const modelURL = URL + "model.json";
@@ -15,6 +21,8 @@ async function init() {
 
     var target2 = document.getElementById("title");
     target2.className = "click_title";
+
+    counter.className = "circle";
     
     // load the model and metadata
     // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
@@ -44,13 +52,6 @@ async function loop(timestamp) {
     await predict();
     window.requestAnimationFrame(loop);
 }
-
-// 상태 : 서있는 상태로 초기화
-let status = "stand" ;
-// 갯수 count
-let count = 0;
-var counter = document.getElementById("counter");
-counter.textContent = count;
 
 async function predict() {
     // Prediction #1: run input through posenet
