@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Squart Page</title>
+      <link rel="stylesheet" href="style.css">
+      <title>Squat Page</title>
   </head>
   <body>
-    <div>Teachable Machine Pose Model - Squart</div>
+    <h1><div>Teachable Machine Pose Model - Squat</div></h1>
     <button type="button" onclick="init()">Start</button>
     <div><canvas id="canvas"></canvas></div>
     <div id="label-container"></div>
@@ -51,7 +52,8 @@
             await predict();
             window.requestAnimationFrame(loop);
         }
-        // 상태
+
+        // 상태 : 서있는 상태로 초기화
         let status = "stand" ;
         // 갯수 count
         let count = 0;
@@ -63,25 +65,22 @@
             // Prediction 2: run input through teachable machine classification model
             const prediction = await model.predict(posenetOutput);
 
-            if (prediction[0].probability.toFixed(2) > 0.9) // 서있는 상태
-            {
-                if (status == "squart")
-                {
+            if (prediction[0].probability.toFixed(2) > 0.9) { // 서있는 상태
+                if (status == "squat"){ // 전에 스쿼트 상태였다면, 일어날 때 카운트를 하나 올려줘야 함.
                     count++;
+                    var audio = new Audio(count%10 + '.wav');
+                    audio.play();
+                    console.log(count);
                 }
-                status = "stand";
-            }
-            else if (prediction[1].probability.toFixed(2) == 1.00) // 스쿼트 자세
-            {
-                status = "squart";
-            }
-            else if (prediction[2].probability.toFixed(2) == 1.00) // 굽은 자세(잘못된 케이스)
-            {
-                if (status == "squart" || status == "stand") // 굽은 자세로 잘못 수행하면,
-                {
-                    console.log("잘못된 경우 입니다.")
+                status = "stand"
+            } else if (prediction[1].probability.toFixed(2) == 1.00) { // 스쿼트 자세
+                status = "squat"
+            } else if (prediction[2].probability.toFixed(2) == 1.00) { // 굽은 자세(잘못된 케이스)
+                if (status == "squart" || status == "stand") { // 굽은 자세로 잘못 수행하면, 소리 나도록
+                    var audio = new Audio('bad.mp3');
+                    audio.play();
                 }
-                status = "bent";
+                status = "bent"
             }
 
             for (let i = 0; i < maxPredictions; i++) {
