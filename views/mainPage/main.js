@@ -1,12 +1,7 @@
-
-
-function moveSquartPage()
+function moveSquatPage()
 {
-    location.href = "/squart";
+    location.href = "/squat";
 }
-
-
-
 
 $(document).ready(function(){
     $('#button').click(function(){
