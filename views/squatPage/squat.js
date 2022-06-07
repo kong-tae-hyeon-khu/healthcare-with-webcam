@@ -49,6 +49,8 @@ async function loop(timestamp) {
 let status = "stand" ;
 // 갯수 count
 let count = 0;
+var counter = document.getElementById("counter");
+counter.textContent = count;
 
 async function predict() {
     // Prediction #1: run input through posenet
@@ -62,8 +64,8 @@ async function predict() {
             count++;
             var audio = new Audio('./sound/' + count%10 + '.wav');
             audio.play();
+            counter.textContent = count;
             console.log(count);
-            document.getElementById("counter").innerText(count);
         }
         status = "stand"
     } else if (prediction[1].probability.toFixed(2) == 1.00) { // 스쿼트 자세
