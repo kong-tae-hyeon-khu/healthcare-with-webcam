@@ -13,13 +13,16 @@ async function init() {
     var target = document.getElementById("youtube");
     target.className = "visible";
 
+    var target2 = document.getElementById("title");
+    target2.className = "click_title";
+    
     // load the model and metadata
     // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
     // Note: the pose library adds a tmPose object to your window (window.tmPose)
     model = await tmPose.load(modelURL, metadataURL);
     maxPredictions = model.getTotalClasses();
     // Convenience function to setup a webcam
-    const size = 300;
+    const size = 400;
     const flip = true; // whether to flip the webcam
     webcam = new tmPose.Webcam(size, size, flip); // width, height, flip
     await webcam.setup(); // request access to the webcam
@@ -60,6 +63,7 @@ async function predict() {
             var audio = new Audio('./sound/' + count%10 + '.wav');
             audio.play();
             console.log(count);
+            document.getElementById("counter").innerText(count);
         }
         status = "stand"
     } else if (prediction[1].probability.toFixed(2) == 1.00) { // 스쿼트 자세
