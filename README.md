@@ -24,5 +24,32 @@
 [x] pront : 웹캠 띄우기 - 정지호  
 [x] pront : 카운팅 기록 - 정지호  
 [x] pront : 홈페이지 디자인 - 정지호
-[] 배포
+[x] 배포 : http://54.145.55.30:3000/
 [] PPT/발표 자료 준비
+
+---
+
+# 기술 스택
+### Backend
+node.js , express
+MongoDB , mogoose
+
+### Frontend
+HTML , Javascript, CSS
+
+### Server
+AWS - EC2
+
+---
+
+# 설치 및 실행
+```
+npm install
+npm run start
+```
+GO to localhost:8000 
+
+# RoadMap
+다양한 운동 자세 추가
+여러 케이스 추가로 정확도 향상
+데이터 베이스를 활용한 운동량 분석
