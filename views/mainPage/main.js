@@ -23,7 +23,7 @@ $(document).ready(function(){
             success : function(datas) {
                 if (datas.loginSuccess)
                 {
-                    moveSquartPage()
+                    moveSquatPage()
                 }
                 else
                 {
@@ -54,7 +54,7 @@ $(document).ready(function(){
             success : function(datas) {
                 if (datas.success)
                 {
-                    moveSquartPage()
+                    moveSquatPage()
                 }
                 else
                 {

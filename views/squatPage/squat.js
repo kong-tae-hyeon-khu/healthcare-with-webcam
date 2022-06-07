@@ -59,7 +59,7 @@ async function predict() {
     const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
     // Prediction 2: run input through teachable machine classification model
     const prediction = await model.predict(posenetOutput);
-
+    let status = "stand"
     if (prediction[0].probability.toFixed(2) > 0.9) { // 서있는 상태
         if (status == "squat"){ // 전에 스쿼트 상태였다면, 일어날 때 카운트를 하나 올려줘야 함.
             count++;

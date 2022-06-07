@@ -35,8 +35,8 @@ app.get('/', (req,res) => {
     console.log(req.session)
     if (req.session.user)
     {
-        app.set('views', __dirname + '/views/squartPage')
-        res.render('squart.html')
+        app.set('views', __dirname + '/views/squatPage')
+        res.render('squat.html')
     }
     else
     {
@@ -46,21 +46,34 @@ app.get('/', (req,res) => {
 
 })
 
+// 음성 소리 파일 전송
 
+
+
+
+// 
 // js 파일 전송.
 app.get('/main.js', (req,res) => {
     res.sendFile( __dirname + '/views/mainPage/main.js')
 })
+// css 파일 전송
+app.get('/main.css', (req,res) => {
+    res.sendFile(__dirname + '/views/mainPage/main.css')
+})
 // js 파일 전송.
-app.get('/squart.js', (req,res) => {
-    res.sendFile( __dirname + '/views/squartPage/squart.js')
+app.get('/squat.js', (req,res) => {
+    res.sendFile( __dirname + '/views/squatPage/squat.js')
+})
+// css 파일 전송
+app.get('/squat.css', (req,res) => {
+    res.sendFile(__dirname + '/views/squatPage/squat.css')
 })
 
-app.get('/squart', (req,res) => {
+app.get('/squat', (req,res) => {
         if (req.session.user)
         {
-        app.set('views', __dirname + '/views/squartPage')
-        res.render('squart.html')
+        app.set('views', __dirname + '/views/squatPage')
+        res.render('squat.html')
         }
         else
         {   // 로그인 안되어 있으면, 스쿼트 페이지 진입 불가.
