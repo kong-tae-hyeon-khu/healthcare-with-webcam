@@ -1,11 +1,11 @@
 // More API functions here:
 // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/pose
+
 // the link to your model provided by Teachable Machine export panel
 const URL = "https://teachablemachine.withgoogle.com/models/xymjZj4q-/"; // 임시 URI - stand , squart, bent(허리 굽은 자세) 학습.
 let model, webcam, ctx, labelContainer, maxPredictions;
 
-// 상태 : 서있는 상태로 초기화
-let status = "stand" ;
+
 // 갯수 count
 let count = 0;
 var counter = document.getElementById("counter");
@@ -100,3 +100,51 @@ function drawPose(pose) {
         }
     }
 }
+
+
+// 사용자 정보 API
+
+let userName = 0
+
+$.get('/api/users/name', function(data) {
+    userName = data.user.user_name
+    console.log(data.user.user_name)
+})
+$(document).ready(function(){
+    $('#savecount').click(function(){
+        
+  
+        $.ajax({
+            contentType : "application/json; charset=utf-8",
+            type : 'get',
+            url : '/api/users/name',
+            dataType : 'JSON',
+
+            success : function(datas) {
+
+                let user_name = datas.user_name
+                $.ajax({
+                    contentType : "application/json; charset=utf-8",
+                    type : 'post',
+                    url : '/api/users/countupdate',
+                    dataType : 'JSON',
+                    data : JSON.stringify({
+                        "name" : userName,
+                        "count" : count
+                    }),
+
+                    success : function(datas)
+                    {
+                        if (datas.success)
+                        {
+                            alert("저장 성공 !")
+                        }
+                    }
+                })
+            }
+        })
+    })
+})
+
+
+

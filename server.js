@@ -47,7 +47,39 @@ app.get('/', (req,res) => {
 })
 
 // 음성 소리 파일 전송
-
+app.get('/sound/0.wav', (req,res) => {
+    res.sendFile(__dirname + '/views/squatPage/sound/0.wav')
+})
+app.get('/sound/1.wav', (req,res) => {
+    res.sendFile(__dirname + '/views/squatPage/sound/1.wav')
+})
+app.get('/sound/2.wav', (req,res) => {
+    res.sendFile(__dirname + '/views/squatPage/sound/2.wav')
+})
+app.get('/sound/3.wav', (req,res) => {
+    res.sendFile(__dirname + '/views/squatPage/sound/3.wav')
+})
+app.get('/sound/4.wav', (req,res) => {
+    res.sendFile(__dirname + '/views/squatPage/sound/4.wav')
+})
+app.get('/sound/5.wav', (req,res) => {
+    res.sendFile(__dirname + '/views/squatPage/sound/5.wav')
+})
+app.get('/sound/6.wav', (req,res) => {
+    res.sendFile(__dirname + '/views/squatPage/sound/6.wav')
+})
+app.get('/sound/7.wav', (req,res) => {
+    res.sendFile(__dirname + '/views/squatPage/sound/7.wav')
+})
+app.get('/sound/8.wav', (req,res) => {
+    res.sendFile(__dirname + '/views/squatPage/sound/8.wav')
+})
+app.get('/sound/9.wav', (req,res) => {
+    res.sendFile(__dirname + '/views/squatPage/sound/9.wav')
+})
+app.get('/sound/bad.mp3', (req,res) => {
+    res.sendFile(__dirname + '/views/squatPage/sound/bad.mp3')
+})
 
 
 
@@ -174,6 +206,13 @@ app.get('/api/users/logout', (req,res) => {
     }
         
 })
+
+app.get('/api/users/name', (req,res) => {
+    return res.json({
+        user : req.session.user
+    })
+})
+
 
 // 스쿼트 갯수 업데이트 API
 app.post('/api/users/countupdate', (req,res) => {
