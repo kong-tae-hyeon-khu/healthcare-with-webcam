@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+
+button {
+  margin: 10px;
+}
+
+.w-btn {
+  position: relative;
+  border: none;
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 15px;
+  font-family: "paybooc-Light", sans-serif;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s;
+}
+
+.w-btn-outline {
+  position: relative;
+  padding: 15px 30px;
+  border-radius: 15px;
+  font-family: "paybooc-Light", sans-serif;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s;
+}
+
+.w-btn-indigo {
+  background-color: aliceblue;
+  color: #2e2f30;
+}
+
+.w-btn-indigo-outline {
+  border: 3px solid aliceblue;
+  color: #2e2f30;
+}
+
+.w-btn-indigo-outline:hover {
+  color: #2e2f30;
+  background: aliceblue;
+}
+
+.Title {
+  font-size : 60px;
+  font-family: fantasy;
+  color : aliceblue;
+  margin: 20px;
+  text-align: center;
+}
