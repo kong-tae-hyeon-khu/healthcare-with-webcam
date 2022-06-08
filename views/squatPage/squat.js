@@ -61,7 +61,7 @@ async function predict() {
     // Prediction 2: run input through teachable machine classification model
     const prediction = await model.predict(posenetOutput);
     
-    if (prediction[0].probability.toFixed(2) > 0.9) { // 서있는 상태
+    if (prediction[0].probability.toFixed(2) > 0.90) { // 서있는 상태
         if (status == "squat"){ // 전에 스쿼트 상태였다면, 일어날 때 카운트를 하나 올려줘야 함.
             count++;
             var audio = new Audio('./sound/' + count%10 + '.wav');
@@ -70,9 +70,11 @@ async function predict() {
             
         }
         status = "stand"
+        console.log(status)
         
     } else if (prediction[1].probability.toFixed(2) == 1.00) { // 스쿼트 자세
         status = "squat"
+        console.log(status)
         
     } else if (prediction[2].probability.toFixed(2) == 1.00) { // 굽은 자세(잘못된 케이스)
         if (status == "squat" || status == "stand") { // 굽은 자세로 잘못 수행하면, 소리 나도록
@@ -81,7 +83,6 @@ async function predict() {
             
         }
         status = "bent"
-        console.log(status);
     }
 
     for (let i = 0; i < maxPredictions; i++) {
