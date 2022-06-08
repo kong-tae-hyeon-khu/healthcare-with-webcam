@@ -1,5 +1,5 @@
 # :rocket:주제
-우리집 헬스 트레이너
+![logo](/uploads/647ebad4d676a801662947a2d5990a19/logo.png)
 
 ---
 
