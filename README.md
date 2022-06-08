@@ -45,6 +45,8 @@ HTML , Javascript, CSS
 AWS , EC2
 
 ---
+### Architecture
+![dddd.drawio__1_](/uploads/46df407fa692c72c4a8b230b6081009c/dddd.drawio__1_.png)  
 
 # 설치 및 실행
 ```
@@ -77,7 +79,7 @@ GO to localhost:8000
 - [x] pront : 웹캠 띄우기 - 정지호  
 - [x] pront : 카운팅 기록 - 정지호  
 - [x] pront : 홈페이지 디자인 - 정지호  
-- [x] 배포 : http://54.145.55.30:3000/  
+- [x] 배포 : https://2019102144.osschatbot2022.tk:23023 
 - [] PPT/발표 자료 준비
 
 ---
