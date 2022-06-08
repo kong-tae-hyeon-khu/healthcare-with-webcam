@@ -2,12 +2,12 @@
 // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/pose
 
 // the link to your model provided by Teachable Machine export panel
-const URL = "https://teachablemachine.withgoogle.com/models/xymjZj4q-/"; // 임시 URI - stand , squart, bent(허리 굽은 자세) 학습.
+const URL = "https://teachablemachine.withgoogle.com/models/J8-G4eWbz/"; // 임시 URI - stand , squart, bent(허리 굽은 자세) 학습.
 let model, webcam, ctx, labelContainer, maxPredictions;
 
 
 // 갯수 count
-let count = 0;
+var count = 0;
 var counter = document.getElementById("counter");
 counter.textContent = count;
 counter.className = "hidden";
@@ -52,6 +52,7 @@ async function loop(timestamp) {
     await predict();
     window.requestAnimationFrame(loop);
 }
+var status = "stand";
 
 async function predict() {
     // Prediction #1: run input through posenet
@@ -59,24 +60,28 @@ async function predict() {
     const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
     // Prediction 2: run input through teachable machine classification model
     const prediction = await model.predict(posenetOutput);
-    let status = "stand"
+    
     if (prediction[0].probability.toFixed(2) > 0.9) { // 서있는 상태
         if (status == "squat"){ // 전에 스쿼트 상태였다면, 일어날 때 카운트를 하나 올려줘야 함.
             count++;
             var audio = new Audio('./sound/' + count%10 + '.wav');
             audio.play();
             counter.textContent = count;
-            console.log(count);
+            
         }
         status = "stand"
+        
     } else if (prediction[1].probability.toFixed(2) == 1.00) { // 스쿼트 자세
         status = "squat"
+        
     } else if (prediction[2].probability.toFixed(2) == 1.00) { // 굽은 자세(잘못된 케이스)
-        if (status == "squart" || status == "stand") { // 굽은 자세로 잘못 수행하면, 소리 나도록
+        if (status == "squat" || status == "stand") { // 굽은 자세로 잘못 수행하면, 소리 나도록
             var audio = new Audio('./sound/bad.mp3');
             audio.play();
+            
         }
         status = "bent"
+        console.log(status);
     }
 
     for (let i = 0; i < maxPredictions; i++) {
