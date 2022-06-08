@@ -25,20 +25,9 @@
 
 ---
 
-# 프로젝트 진행 상황
-[✔] 구글 API를 통한 자세 학습(서있는 자세, 스쿼트 자세, 틀린 자세) - 공태현  
-[✔] poseCount - 공태현  
-[✔] pront : 웹캠 띄우기 - 정지호  
-[✔] pront : 카운팅 기록 - 정지호  
-[✔] pront : 홈페이지 디자인 - 정지호  
-[✔] 배포 : http://54.145.55.30:3000/  
-[] PPT/발표 자료 준비
-
----
-
 # 기술 스택
 ### Backend
-node.js , express
+node.js , express  
 MongoDB , mogoose
 
 ### Frontend
@@ -47,22 +36,41 @@ HTML , Javascript, CSS
 ### Server 
 AWS , EC2
 
+---
+
 # 설치 및 실행
 ```
 npm install
 npm run start
 ```
 GO to localhost:8000 
-* 테스트 케이스 추가 및 설정 -> https://teachablemachine.withgoogle.com
+* 테스트 케이스 추가 및 설정 `https://teachablemachine.withgoogle.com`
 * URL 연결 on squat.js
 
+---
+
 # for developer
-* server.js : API Implement, mongodb database access IP 추가 필요 -> https://www.mongodb.com
+* server.js : API Implement, mongodb database access IP 추가 필요 `https://www.mongodb.com`
 * change mongoose.connect("Key") for own database.
 * model/user.js : Database user schema
+
+---
 
 # RoadMap
 * 다양한 운동 자세 추가
 * 여러 케이스 추가로 정확도 향상
 * 데이터 베이스를 활용한 운동량 분석
+
+---
+
+# 프로젝트 진행 상황
+- [x] 구글 API를 통한 자세 학습(서있는 자세, 스쿼트 자세, 틀린 자세) - 공태현  
+- [x] poseCount - 공태현  
+- [x] pront : 웹캠 띄우기 - 정지호  
+- [x] pront : 카운팅 기록 - 정지호  
+- [x] pront : 홈페이지 디자인 - 정지호  
+- [x] 배포 : http://54.145.55.30:3000/  
+- [] PPT/발표 자료 준비
+
+---
 
