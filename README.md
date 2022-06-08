@@ -24,6 +24,14 @@
 4. 정확한 자세로 동작을 수행해야만 카운트가 올라간다.  
 
 ---
+# Usage
+![image](/uploads/b5e4828606ed50a71d42609293244754/image.png)  
+  
+![image](/uploads/e45eb6186df16c33a59fdb94c0181463/image.png)  
+  
+![image](/uploads/a9c24b96c2b0f3f63c46134b13194d4e/image.png)  
+
+---
 
 # 기술 스택
 ### Backend
