@@ -50,13 +50,17 @@ AWS , EC2
 
 # 설치 및 실행
 ```
+Clone the repo
 npm install
 npm run start
-```
-GO to localhost:8000 
+```  
+* Before npm run start, change mongoose.connect("Key") for own database.
+
+GO to localhost:3000
+
 * 테스트 케이스 추가 및 설정 `https://teachablemachine.withgoogle.com`
 * URL 연결 on squat.js
-
+* 카메라 접근 허용 on Chrome
 ---
 
 # for developer
@@ -83,4 +87,11 @@ GO to localhost:8000
 - [] PPT/발표 자료 준비
 
 ---
+
+# Contributing
+1. Fork the project repository
+2. Create your feature Branch (feature/'feature-name')
+3. Commit your Changes
+4. Push to the Branch
+5. Open a Pull requests
 
