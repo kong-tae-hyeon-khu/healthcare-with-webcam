@@ -72,7 +72,9 @@ GO to localhost:3000
 * server.js : API Implement, mongodb database access IP 추가 필요 `https://www.mongodb.com`
 * change mongoose.connect("Key") for own database.
 * model/user.js : Database user schema
-* HTML with JS : Using Ajax for get & post API(server.js)
+* HTML with JS : Using Ajax for get & post API(server.js)  
+
+
 ---
 
 # RoadMap
