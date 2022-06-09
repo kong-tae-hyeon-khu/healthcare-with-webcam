@@ -16,7 +16,7 @@ app.engine('html',ejs.renderFile )
 const { User } = require('./model/User');
 const mongoose = require('mongoose');
 // db 연결을 위한 키 값 , 보안을 위해 최종 마스터 브런치에는 포함하지 않을 예정. 
-mongoose.connect('mongodb+srv://kongtae:ksas9825!%40@squartusers.e2ddc.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect('Your own Key')
 .then(() => console.log('MongoDB connect!'))
 .catch(err => console.log(err))
 
