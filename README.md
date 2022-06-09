@@ -45,16 +45,22 @@ HTML , Javascript, CSS
 AWS , EC2
 
 ---
+### Architecture
+![dddd.drawio__1_](/uploads/46df407fa692c72c4a8b230b6081009c/dddd.drawio__1_.png)  
 
 # 설치 및 실행
 ```
+Clone the repo
 npm install
 npm run start
-```
-GO to localhost:8000 
+```  
+* Before npm run start, change mongoose.connect("Key") for own database.
+
+GO to localhost:3000
+
 * 테스트 케이스 추가 및 설정 `https://teachablemachine.withgoogle.com`
 * URL 연결 on squat.js
-
+* 카메라 접근 허용 on Chrome
 ---
 
 # for developer
@@ -77,8 +83,15 @@ GO to localhost:8000
 - [x] pront : 웹캠 띄우기 - 정지호  
 - [x] pront : 카운팅 기록 - 정지호  
 - [x] pront : 홈페이지 디자인 - 정지호  
-- [x] 배포 : http://54.145.55.30:3000/  
+- [x] 배포 : https://2019102144.osschatbot2022.tk:23023 
 - [] PPT/발표 자료 준비
 
 ---
+
+# Contributing
+1. Fork the project repository
+2. Create your feature Branch (feature/'feature-name')
+3. Commit your Changes
+4. Push to the Branch
+5. Open a Pull requests
 
