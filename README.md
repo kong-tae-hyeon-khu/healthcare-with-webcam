@@ -57,17 +57,22 @@ npm run start
 * Before npm run start, change mongoose.connect("Key") for own database.
 
 GO to localhost:3000
+1. Register on own Webpage
+2. Login 
+3. Webcam Start
 
 * 테스트 케이스 추가 및 설정 `https://teachablemachine.withgoogle.com`
 * URL 연결 on squat.js
 * 카메라 접근 허용 on Chrome
+
+
 ---
 
 # for developer
 * server.js : API Implement, mongodb database access IP 추가 필요 `https://www.mongodb.com`
 * change mongoose.connect("Key") for own database.
 * model/user.js : Database user schema
-
+* HTML with JS : Using Ajax for get & post API(server.js)
 ---
 
 # RoadMap
