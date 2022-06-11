@@ -102,3 +102,7 @@ GO to localhost:3000
 4. Push to the Branch
 5. Open a Pull requests
 
+
+# License  
+Distributed under the MIT License. See LICENSE for more information.  
+
